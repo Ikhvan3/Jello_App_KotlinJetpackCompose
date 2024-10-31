@@ -1,4 +1,4 @@
-package com.example.jello_app.ui.theme
+package com.example.ui.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,23 +1,17 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
 }
 
 android {
-    namespace = "com.example.jello_app"
+    namespace = "com.example.ui"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.jello_app"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -42,16 +36,9 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
 }
 
 dependencies {
-    //Module
-    implementation(project(":feature:auth"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -64,8 +51,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
 }
