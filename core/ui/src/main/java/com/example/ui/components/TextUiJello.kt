@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.ui.theme.VividMagenta
 
 //Text Header
 @Composable
@@ -66,7 +67,7 @@ fun JelloTextRegularWithClick(
         )
         withStyle(
             style = SpanStyle(
-                color = Color.Blue,
+                color = VividMagenta,
                 fontWeight = FontWeight.Bold
             )
         ){
@@ -100,4 +101,29 @@ fun JelloTextRegularWithClick(
 @Composable
 fun JelloTextRegularWithClickPreview(){
     JelloTextRegularWithClick()
+}
+
+@Composable
+fun JelloTextRegular(
+    text: String = "E-mail",
+    modifier: Modifier = Modifier.padding(16.dp),
+    color: Color = Color.Black
+){
+    Text(
+        text = text,
+        modifier = modifier,
+        style = TextStyle(
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Normal,
+            lineHeight = 16.sp,
+            textAlign = TextAlign.Left,
+        ),
+        color = color
+    )
+}
+
+@Preview
+@Composable
+fun JelloTextRegularPreview(){
+    JelloTextRegular()
 }
